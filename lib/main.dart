@@ -122,11 +122,14 @@ class MyHomePage extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
+              final value = context.read<Counter>().counterA;
               // 画面遷移
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HookSample2(),
+                  builder: (context) => HooksSample(
+                    title: '$value',
+                  ),
                 ),
               );
             },
@@ -142,13 +145,18 @@ class MyHomePage extends StatelessWidget {
 }
 
 class HooksSample extends HookWidget {
-  const HooksSample({super.key});
+  const HooksSample({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     useEffect(
       () {
-        debugPrint('useEffect');
+        debugPrint(title);
         return null;
       },
       [],
