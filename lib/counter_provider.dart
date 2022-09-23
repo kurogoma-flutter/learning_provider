@@ -15,7 +15,6 @@ class Counter extends ChangeNotifier {
   /// counterBを増やす
   void incrementB() {
     counterB++;
-    // notifyListeners();
   }
 
   /// counterCを増やす
